@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>KalakariStreet</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/checkbox.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+    <script src="https://code.angularjs.org/1.3.5/angular.js"></script>
+    <link rel=”stylesheet” href=”//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css”>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-touch/1.7.9/angular-touch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-animate/1.7.9/angular-animate.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#btn").click(function(){
+          $("#nav").css("visibility","visible");
+        });
+        $("#submit").click(function(){
+          $("#alert").css("visibility","visible");
+        });
+      });
+      jQuery(function($){
+      var $navbar = $('.container-fluid');
+      $(window).scroll(function(event) {
+      var $current = $(this).scrollTop();
+         if( $current > 300 ){
+              $navbar.addClass('navbar-color');
+         } else {
+              $navbar.removeClass('navbar-color');
+         }
+      });
+      });
+    </script>
+  </head>
+  <body ng-app="app">
+    <div class="main">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-md navbar-dark navbar-fixed-top">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav" id="btn">Menu
+                <span class="sr-only">Toggle navigation</span>
+              </button>
+              <a class="navbar-brand logo" href="#"><img src="img/logo1.png" alt="" width="189" height="100"></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-left">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Desingners</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#">Collection</a></li>
+                <li><a href="#">Sales</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#myModal">Filter</a></li>
+              </ul>
+            </div>
+            <div id="nav" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Desingners</a></li>
+                <li><a href="#">Collection</a></li>
+                <li><a href="#">Sales</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#myModal">Filter</a></li>
+              </ul>
+            </div>
+              <!--/.nav-collapse -->
+          </div>
+            <!--/.container-fluid -->
+        </nav>
+      </div>
+      <div class="container text-left" id="cont">
+        <h1>Discover India's Finest Occasional Wear</h1>
+      </div>
+    </div>
+    <div id="carosel">
+      <h1 class="text-center">CURATED WITH LOVE</h1>
+      <h3 class="text-center">Find your perfect outfit for any occasions</h3>
+      <div>
+        <div ng-controller="CarouselDemoCtrl">
+          <div>
+            <carousel interval="3000">
+              <slide ng-repeat="slide in slides">
+                <img ng-src="{{slide.image}}">
+                <div class="carousel-caption">
+                  <h2>{{slide.cap}}</h2>
+                </div>
+              </slide>
+            </carousel>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <div class="container" >
+        <h1>User Form</h1>
+        <form name="cf" ng-controller="cfController" ng-submit="submitForm()">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input id="name" type="text" name="name" ng-model="name" ng-required="true" ng-minlength="2" pattern="^[A-Za-z]+$">
+            <p class="error" ng-show="cf.name.$invalid && cf.name.$touched">Enter your name</p>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" ng-required="true" ng-model="email">
+            <p class="error" ng-show="cf.email.$invalid && cf.email.$touched">Enter your email</p>
+          </div>
+          <div class="form-group">
+            <label for="p_price">Product Price</label>
+            <input id="p_price" type="text" name="p_price" pattern="^[0-9]*$" ng-required="true" ng-model="p_price">
+            <p class="error" ng-show="cf.p_price.$invalid && cf.p_price.$touched">Enter the Product Price</p>
+          </div>
+          <div class="form-group">
+            <label for="p_des">Product Description</label>
+            <input id="p_des" type="text" name="p_des" name="message" rows="2" ng-required="true" ng-model="p_des">
+            <p class="error" ng-show="cf.p_des.$invalid && cf.p_des.$touched">Enter the Product Description</p>
+          </div>
+          <div class="form-group">
+            <label for="size">Available Size</label>
+            <div ng-controller="checkboxCtrl" ng-required="true">
+              <div class="checkbox checkbox-warning" ng-repeat="s in arrlist">
+                <input id="check3" class="styled" type="checkbox">
+                <label for="check3">
+                    {{s.size}}
+                </label>
+            </div>
+
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="size">Available colors</label>
+            <div ng-controller="checkboxCtrlCol" ng-required="true" >
+              <div class="checkbox checkbox-warning" ng-repeat="c in arrlist">
+                <input id="check3" class="styled" type="checkbox" >
+                <label for="check3">
+                    {{c.color}}
+                </label>
+            </div>
+
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="image">upload Image</label>
+            <div class="input-group">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile01"
+                  aria-describedby="inputGroupFileAddon01" ng-required="true">
+                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+              </div>
+            </div>
+          </div>
+          <input type="submit" value="Send" id="submit" ng-disabled="cf.$invalid"/><br>
+          <div class="alert alert-success" id="alert">
+            <p ng-show="msg">{{msg}}</p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Filter</h4>
+          </div>
+          <div class="modal-body">
+            <nav id="menu">
+              <ul class="parent-menu">
+                <li><a href="#" id="catagory">Catagory</a>
+                  <ul>
+                    <li><a href="#">
+                      <div class="checkbox checkbox-primary">
+                        <input id="check3" class="styled" type="checkbox">
+                        <label for="check3">
+                            Kurtas
+                        </label>
+                    </div>
+                    </a></li>
+                    <li><a href="#">
+                      <div class="checkbox checkbox-primary">
+                        <input id="check3" class="styled" type="checkbox">
+                        <label for="check3">
+                            Kurta Sets
+                        </label>
+                    </div>
+                    </a></li>
+                  </ul>
+                </li>
+                <li><a href="#" id="size">Size</a>
+                  <ul>
+                    <li><a href="#">
+                      <div class="checkbox checkbox-primary">
+                        <input id="check3" class="styled" type="checkbox">
+                        <label for="check3">
+                            XS
+                        </label>
+                    </div>
+                    </a></li>
+                    <li><a href="#">
+                      <div class="checkbox checkbox-primary">
+                        <input id="check3" class="styled" type="checkbox">
+                        <label for="check3">
+                            S
+                        </label>
+                    </div>
+                    </a></li>
+                    <li><a href="#">
+                      <div class="checkbox checkbox-primary">
+                        <input id="check3" class="styled" type="checkbox">
+                        <label for="check3">
+                            M
+                        </label>
+                    </div>
+                    </a></li>
+                    <li><a href="#">
+                      <div class="checkbox checkbox-primary">
+                        <input id="check3" class="styled" type="checkbox">
+                        <label for="check3">
+                            L
+                        </label>
+                    </div>
+                    </a></li>
+                    <li><a href="#">
+                      <div class="checkbox checkbox-primary">
+                        <input id="check3" class="styled" type="checkbox">
+                        <label for="check3">
+                            XL
+                        </label>
+                    </div>
+                    </a></li>
+                  </ul>
+                </li>
+                <li><a href="#" id="price">Price</a>
+                  <ul>
+                    <li><a href="#">
+                      <div class="checkbox checkbox-primary">
+                        <input id="check3" class="styled" type="checkbox">
+                        <label for="check3">
+                            below 500
+                        </label>
+                    </div>
+                    </a></li>
+                    <li><a href="#">
+                      <div class="checkbox checkbox-primary">
+                        <input id="check3" class="styled" type="checkbox">
+                        <label for="check3">
+                            above 500
+                        </label>
+                    </div>
+                    </a></li>
+                  </ul>
+                </li>
+                <li><a href="#" id="brand">Brand</a>
+                  <ul>
+                    <li><a href="#">
+                      <div class="checkbox checkbox-primary">
+                        <input id="check3" class="styled" type="checkbox">
+                        <label for="check3">
+                            W Brand
+                        </label>
+                    </div>
+                    </a></li>
+                    <li><a href="#">
+                      <div class="checkbox checkbox-primary">
+                        <input id="check3" class="styled" type="checkbox">
+                        <label for="check3">
+                            Libas
+                        </label>
+                    </div>
+                    </a></li>
+                  </ul>
+                </li>
+                <li><a href="#" id="color">color</a>
+                  <ul>
+                    <li><a href="#">
+                      <div class="checkbox checkbox-primary">
+                        <input id="check3" class="styled" type="checkbox">
+                        <label for="check3">
+                            White
+                        </label>
+                    </div>
+                    </a></li>
+                    <li><a href="#">
+                      <div class="checkbox checkbox-primary">
+                        <input id="check3" class="styled" type="checkbox">
+                        <label for="check3">
+                            Black
+                        </label>
+                    </div>
+                    </a></li>
+                    <li><a href="#">
+                      <div class="checkbox checkbox-primary">
+                        <input id="check3" class="styled" type="checkbox">
+                        <label for="check3">
+                            Red
+                        </label>
+                    </div>
+                    </a></li>
+                    <li><a href="#">
+                      <div class="checkbox checkbox-primary">
+                        <input id="check3" class="styled" type="checkbox">
+                        <label for="check3">
+                            Blue
+                        </label>
+                    </div>
+                    </a></li>
+                  </ul>
+                </li>
+                <li><a href="#" id="discount">Discount Price</a>
+                  <ul>
+                    <li><a href="#">
+                      <div class="checkbox checkbox-primary">
+                        <input id="check3" class="styled" type="checkbox">
+                        <label for="check3">
+                            10%
+                        </label>
+                    </div>
+                    </a></li>
+                    <li><a href="#">
+                      <div class="checkbox checkbox-primary">
+                        <input id="check3" class="styled" type="checkbox">
+                        <label for="check3">
+                            25%
+                        </label>
+                    </div>
+                    </a></li><li><a href="#">
+                      <div class="checkbox checkbox-primary">
+                        <input id="check3" class="styled" type="checkbox">
+                        <label for="check3">
+                            50%
+                        </label>
+                    </div>
+                    </a></li>
+                    <li><a href="#">
+                      <div class="checkbox checkbox-primary">
+                        <input id="check3" class="styled" type="checkbox">
+                        <label for="check3">
+                            75%
+                        </label>
+                    </div>
+                    </a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-warning" data-dismiss="modal">Apply</button>
+          </div>
+            </div>
+        </div>
+      </div>
+  </body>
+</html>

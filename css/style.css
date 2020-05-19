@@ -1,0 +1,189 @@
+body{
+  font-family: 'Playfair Display', serif;
+}
+.main{
+  background-image:url('../img/back.jpg');
+  position:relative;
+  background-size: cover;
+  width: 100%;
+  height: 800px;
+  font-family: 'Playfair Display', serif;
+}
+.main .container{
+  position: absolute;
+  color: white;
+  padding-top:250px;
+  padding-left: 100px;
+}
+#social{
+  font-size: 15px;
+  text-align: center;
+  color:white;
+}
+li a{
+  color: #dca86e;
+  font-size: 23px;
+}
+i{
+  padding: 65px 15px 30px 15px;
+}
+.navbar{
+  padding: 0px;
+  height:100px;
+  position: relative;
+}
+.logo{
+  height: 100%;
+  vertical-align: middle;
+  text-align: center;
+}
+#nav li a{
+  font-size: 15px;
+}
+#nav,#alert{
+  visibility: hidden;
+}
+#navbar ul{
+  padding:50px 100px 0px;
+}
+.navbar-color{
+  background-color: white;
+  width: 100% ;
+  margin: 0px;
+  padding: 0px;
+
+}
+.navbar-color li a{
+  color: #dca86e;
+}
+#btn{
+  background-color:white;
+  margin:65px 10px 10px 0px;
+}
+.navbar-color #btn{
+  background-color: black;
+  color: white;
+}
+.navbar-brand{
+
+  transform: translateX(-50%);
+left: 50%;
+position: absolute;
+padding: 0px;
+width: auto;
+}
+#name,#email,#p_price,#p_des,#submit, textarea {
+	border: 1px solid #ccc;
+	padding: 4px 0;
+	width: 100%;
+	-webkit-appearance: none;
+}
+input[type=submit] {
+	background: #4a4;
+	border: 0;
+	color: #fff;
+	padding: 8px 16px;
+	transition: background 0.2s;
+}
+input[type=submit]:not(:disabled):hover {
+	background: #6c6;
+}
+input[type=submit]:not(:disabled):active {
+	background: #383;
+}
+input[disabled] {
+	opacity: 0.5;
+}
+#container{
+  padding: 50px;
+  background-image:url('../img/new.jpg');
+  position:relative;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  font-family: 'Playfair Display', serif;
+  color: #dca86e;
+}
+#container .container {
+	background: #fff;
+	box-shadow: 0 2px 4px #888;
+	margin: auto;
+	padding: 16px;
+	max-width: 600px;
+}
+.form-group {
+	margin-bottom: 16px;
+}
+input.ng-invalid.ng-dirty,
+textarea.ng-invalid.ng-dirty{
+	border-color: red;
+	box-shadow: 0 0 4px red;
+}
+#carosel{
+font-family: 'Playfair Display', serif;
+color: #dca86e;
+}
+#slides_control > div{
+  height: 800px;
+  color: #dca86e;
+}
+#carosel img{
+  margin:auto;
+  width: 800px;
+}
+#slides_control {
+  position:absolute;
+  width: 800px;
+  left:50%;
+  top:20px;
+ margin-left:-200px;
+}
+.modal-content{
+  font-family: 'Playfair Display', serif;
+  font-size: 10px;
+}
+.modal-body  ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+}
+
+.modal-body li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+/* Change the link color on hover */
+.modal-body li a:hover {
+  background-color: #555;
+  color: white;
+}
+#menu {
+  overflow: auto;
+  position:relative;
+  z-index:2;
+}
+.parent-menu {
+  background-color: #0c8fff;
+  min-width:200px;
+  float:left;
+}
+#menu ul {
+  list-style-type:none;
+}
+#menu ul li a {
+  padding:10px 15px;
+  display:block;
+  text-decoration:none;
+}
+#menu ul li a:hover {
+  background-color:#007ee9;
+}
+#menu ul li:hover > ul { left: 200px; -webkit-transition: left 200ms ease-in; -moz-transition: left 200ms ease-in; -ms-transition: left 200ms ease-in; transition: left 200ms ease-in; }
+#menu ul li > ul { position: absolute;color: #333; top: 0; left: -200px; min-width: 200px; z-index: -1; height: 100%; -webkit-transition: left 200ms ease-in; -moz-transition: left 200ms ease-in; -ms-transition: left 200ms ease-in; transition: left 200ms ease-in; }
+#menu ul li > ul li a:hover { background-color:#2e2e2e; }
